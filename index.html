@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="WPX intranet" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="WPX" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Ubuntu:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link CSS style -->
+    <link rel="stylesheet" href="/styles/css/style.css" />
+
+    <title>WPX Intranet</title>
+    <link rel="icon" href="img/Logo.svg" />
+  </head>
+  <body>
+    <!-- Login & Register Modal -->
+    <section class="login flex">
+      <!-- Login & Register Box -->
+      <div login class="login__content">
+        <!-- Background Clickable -->
+        <div class="login__BG">
+          <!-- Clickable Signin -->
+          <div class="box signin">
+            <h3>Já possui uma conta ?</h3>
+            <button class="signinBtn">Login</button>
+          </div>
+
+          <!-- Clickable SignUp -->
+          <div class="box signup">
+            <h3>Não possui uma conta ?</h3>
+            <button class="signupBtn">Cadastre-se</button>
+          </div>
+        </div>
+
+        <!-- Transition Forms -->
+        <div class="login__formBx">
+          <!-- Login Box Form -->
+          <div form class="login__form signinForm">
+            <form onsubmit="validaUsuario(); clearAll()">
+              <!-- Title Area -->
+              <div class="imgcontainer">
+                <h1 class="title">Login</h1>
+                <img src="/img/LoginIcon.svg" alt="Avatar" class="avatar" />
+              </div>
+              <!-- Subtitle -->
+              <span class="subtitle"
+                >Preencha os campos abaixo para que possamos verificar sua
+                identidade.</span
+              >
+              <div class="content">
+                <!-- Inputs -->
+                <input
+                  loginEmail
+                  type="text"
+                  placeholder="Email"
+                  id="loginEmail"
+                  name="email"
+                  required
+                />
+                <label for="passwordInput">
+                  <input
+                    password_login
+                    type="password"
+                    name="password"
+                    id="passwordLogin"
+                    placeholder="Senha"
+                    required
+                  />
+                  <!-- Password View -->
+                  <button
+                    type="button"
+                    eye_login
+                    class="password__eye"
+                  ></button>
+                </label>
+
+                <!-- Submit Button -->
+                <button loginSubmit class="register__button" type="submit">
+                  Login
+                </button>
+              </div>
+
+              <!-- User Options -->
+              <div class="options" style="background-color: #f1f1f1">
+                <!-- Close Login & Register Modal -->
+                <button type="button" onclick="openLogin()" class="cancelbtn">
+                  Sair
+                </button>
+
+                <!-- Reset Password -->
+                <span class="psw"
+                  ><a
+                    href="#"
+                    onclick="document.getElementById('id01').style.display='block'"
+                  >
+                    Esqueceu sua Senha?</a
+                  ></span
+                >
+              </div>
+            </form>
+          </div>
+
+          <!-- Register Form -->
+          <div form class="login__form__signup signupForm">
+            <form onsubmit="cadastraUsuario(); clearAll()">
+              <!-- Title Area -->
+              <div class="imgcontainer">
+                <h1 class="title">Cadastre-se</h1>
+                <img src="/img/RegisterIcon.svg" alt="Avatar" class="avatar" />
+              </div>
+
+              <!-- Subtitle -->
+              <span class="subtitle"
+                >Crie seu perfil corporativo, levará apenas alguns
+                minutos.</span
+              >
+
+              <div class="content">
+                <!-- Inputs -->
+                <input
+                  name_input
+                  class="input"
+                  type="text"
+                  name="name"
+                  id="nameSignup"
+                  placeholder="Nome Completo"
+                  required
+                />
+                <span class="fa-solid fa-user"></span>
+                <input
+                  signupEmail
+                  type="text"
+                  placeholder="Email"
+                  name="email"
+                  id="emailSignup"
+                  required
+                />
+                <label for="passwordInput">
+                  <input
+                    password_signup
+                    type="password"
+                    name="password"
+                    id="passwordSignup"
+                    placeholder="Senha"
+                    required
+                  />
+
+                  <!-- Password View -->
+                  <button
+                    type="button"
+                    eye_signup
+                    class="password__eye"
+                  ></button>
+                </label>
+
+                <!-- Gender Options -->
+                <div class="options__sex">
+                  <label class="container"
+                    ><img src="/img/EditIcon.svg" alt="Masculino" />
+                    <input
+                      type="radio"
+                      checked="checked"
+                      name="radio"
+                      id="masculino"
+                    />
+                    <span class="checkmark"></span>
+                  </label>
+
+                  <label class="container"
+                    ><img src="/img/EditFemaleIcon.svg" alt="Feminino" />
+                    <input type="radio" name="radio" id="feminino" />
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+
+                <!-- Register User Button -->
+                <button SignUpSubmit class="register__button" type="submit">
+                  Cadastrar
+                </button>
+              </div>
+
+              <!-- Terms -->
+              <div class="terms">
+                <span
+                  >Ao prosseguir, você concorda com nossos <br />
+                  <a href="#">Termos de Uso</a> e
+                  <a href="#">Política de Privacidade</a>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reset Password -->
+    <section reset class="feature__reset container container--px">
+      <!-- The Modal -->
+      <div id="id01" class="modal">
+        <!-- Modal Content -->
+        <form class="modal-content animate" action="/action_page.php">
+          <!-- Title Content -->
+          <div class="imgcontainer">
+            <h1 class="title">Esqueceu sua senha?</h1>
+            <img src="/img/ResetIcon.svg" alt="Reset" class="avatar" />
+          </div>
+          <span class="subtitle"
+            >Estaremos lhe enviando um email para seu endereço cadastrado <br />
+            com instruções para configurar sua nova senha.</span
+          >
+
+          <!-- Form Email Reset -->
+          <div class="container">
+            <form action="/" method="POST">
+              <input
+                resetInput
+                type="text"
+                placeholder="Email Cadastrado"
+                name="email"
+                id="resetInput"
+                required
+              />
+
+              <span class="info"
+                >Se você ainda não recebeu o email, aguarde alguns minutos e
+                verifique seu spam</span
+              >
+              <!-- Email Reset Btn -->
+              <button resetButton class="register__button" type="submit">
+                Enviar Email
+              </button>
+            </form>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <script src="/scripts/form.js"></script>
+    <script src="/scripts/post.js"></script>
+  </body>
+</html>
